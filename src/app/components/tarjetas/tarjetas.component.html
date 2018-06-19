@@ -1,0 +1,9 @@
+<div class="card-columns m-5">
+  <div *ngFor="let item of object" class="card">
+    <img class="card-img-top" [src]="item.images | noimage" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"> {{ item.name }} </h5>
+      <a *ngFor="let child of item.artists" href="#" class="badge badge-primary">{{ child.name }}</a>
+    </div>
+  </div>
+</div>

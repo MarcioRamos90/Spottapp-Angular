@@ -7,14 +7,15 @@ import { SpotifyService } from "../../services/spotify.service";
   styles: []
 })
 export class HomeComponent {
-  paises: any[] = [];
-
   newAlbuns: any[] = [];
+
+  loading: boolean = true;
 
   constructor(private spotify: SpotifyService) {
     this.spotify.getNewReleases().subscribe((data: any) => {
       console.log(data);
       this.newAlbuns = data;
+      this.loading = false;
     });
   }
 }
