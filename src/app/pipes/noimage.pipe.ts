@@ -4,7 +4,11 @@ import { Pipe, PipeTransform } from "@angular/core";
   name: "noimage"
 })
 export class NoimagePipe implements PipeTransform {
-  transform(images: any[]): any {
+  transform(images: any[]): string {
+    if (!images) {
+      return "assets/img/nophoto.svg";
+    }
+
     if (images.length > 0) {
       return images[0].url;
     }
